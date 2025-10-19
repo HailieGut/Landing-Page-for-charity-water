@@ -1,110 +1,169 @@
-/* Reset basic browser styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-/* General body styles */
+
+/* Global Styles */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #b86b4b;
-  color: #333;
+    margin: 0;
+    font-family: proxima nova, sans-serif;
+    background-color: #b86b4b;  /* Brown background */
+    color: #333;
+    font-size: 1.2rem;
 }
 
-/* Header Section */
+/* Header */
+/* Header */
 .header {
-  background-color: white;
-  padding: 10px 20px;
+    background-color: white;
+    padding: 7px 10px;       /* a little more space around the logo */
+    display: flex;
+    align-items: center;      /* centers logo vertically */
 }
 
+/* Logo */
 .logo img {
-  height: 40px;
+    height: 60px;             /* ✅ makes the logo bigger */
+    max-width: 100%;
+    object-fit: contain;      /* ✅ keeps it nicely scaled inside header */
+    display: block;
 }
 
-/* Hero Section Layout */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: #b86b4b;
-  padding: 40px 20px;
+
+/* Main Section Layout */
+.main-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
 }
 
-/* Text Section */
-.text-section {
-  background-color: #f8d33a;
-  flex: 1 1 400px;
-  padding: 40px;
-  min-width: 300px;
+/* Text Content */
+.text-content {
+    background-color: #b86b4b;  /* Bright yellow */
+    flex: 1;
+    min-width: 400px;
+    padding: 60px;
+    box-sizing: border-box;
 }
-
 .text-section h1 {
-  font-size: 2.2rem;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  color: #333;
+    font-size: 5rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.text-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.subscribe-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.ripple-btn {
+    background-color: #e6f2ff;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.subscribe-btn {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+.subscribe-btn:hover {
+    background-color: #003366;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+}
+
+/* Image Content */
+.image-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-image {
+    width: 100%;
+    height: auto;
+    max-width: 550px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Adjustments for hero layout used in index.html */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #b86b4b;
+}
+
+.text-section {
+    background-color: #ffc907;
+    flex: 1 1 900px;
+    align-items: flex-start;
+    text-align: left;
+    padding: 10px 60px;
+    min-width: 1200px;
+    box-sizing: border-box;
 }
 
 .text-section p {
-  margin-bottom: 20px;
-  font-size: 1rem;
-  line-height: 1.5;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: center;
 }
 
-/* Subscribe Box */
-.subscribe-box {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.ripple-btn,
-.subscribe-btn {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.ripple-btn {
-  background-color: #e8f4fa;
-}
-
-.subscribe-btn {
-  background-color: #00264d;
-  color: white;
-}
-
-.subtext {
-  font-size: 0.9rem;
-  margin-top: 10px;
-}
-
-/* Image Section */
 .image-section {
-  flex: 1 1 400px;
-  display: flex;
-  justify-content: center;
+    flex: 0 0 auto; /* don't grow, allow fixed sizing */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* push image to the right relative to its container */
+    margin-left: -100px; /* pull the image slightly over into the yellow area */
 }
 
 .image-section img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    display: block;
 }
 
-/* Responsive Design for Mobile */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-  }
+    .image-section {
+        margin-left: 0; /* reset on mobile so it doesn't overflow */
+        justify-content: center;
+    }
 
-  .text-section,
-  .image-section {
-    width: 100%;
-  }
+    .image-section img {
+        width: 90%;
+        max-width: 320px;
+    }
 }
-/* Blank stylesheet created for the project. */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-section {
+        flex-direction: column;
+    }
+    .text-content, .image-content {
+        width: 100%;
+    }
+}
